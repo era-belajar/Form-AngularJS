@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form AngularJS</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+	<script type="text/javascript" src='angular.min.js'></script>
+	<script type="text/javascript" src='app.js'></script>
+	<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body ng-app='myApp'>
+
+	<div ng-controller='MyController'>
+		<h2>Database</h2>
+		<ul class='list-group'>
+		<li class='list-group-item' ng-repeat='database in databases'>
+			<div>
+				<p>Nama: {{database.nama}}</p>
+				<p>Alamat: {{database.alamat}}</p>
+				<p>Jenis Kelamin: {{database.kelamin}}</p>
+				<button class="btn" type="button" ng-click="remove(database)">Hapus</button>
+			</div>
+		</li>
+		</ul>
+
+		<form name='databaseForm' ng-submit='addDatabase()'>
+			<p>{{form.nama}}</p>
+			<p>{{form.alamat}}</p>
+			<p>{{form.kelamin}}</p>
+
+			<label>Nama</label><br/>
+			<input ng-model='form.nama' type='text'><br/>
+			<label>Alamat</label><br/>
+			<input ng-model='form.alamat' type='text'><br/>
+			<label>Jenis Kelamin</label><br/>
+				<input type='radio' ng-model='form.kelamin' value='Laki-laki'>Laki-laki &nbsp;
+				<input type='radio' ng-model='form.kelamin' value='Perempuan'>Perempuan <br/>
+			<input id='submit' type='submit' value='Add Database'/>
+
+		</form>
+
+	</div>
+
+</body>
+</html>
